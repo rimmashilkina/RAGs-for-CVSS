@@ -4,6 +4,15 @@ Fetch vulnerability records from the National Vulnerability Database (NVD).
 This script downloads NVD vulnerability data and extracts
 the fields required for the CVSS severity prediction dataset.
 """
+
+#Import
+import gzip
+import json
+import os
+
+import pandas as pd
+import requests
+
 # download NVD files starting from 2020
 def download_nvd_data(years, download_dir='data/raw/nvd'):
     """
