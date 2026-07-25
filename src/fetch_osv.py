@@ -99,7 +99,7 @@ def parse_osv_file(file_path):
     except Exception:
         return None
 
-def load_osv_parallel(json_dir="raw/osv", workers=8):
+def load_osv_parallel(json_dir="data/raw/osv", workers=8):
     files = [os.path.join(json_dir, f) for f in os.listdir(json_dir) if f.endswith(".json")]
     with Pool(workers) as p:
         data = [r for r in p.map(parse_osv_file, files) if r]
@@ -107,4 +107,4 @@ def load_osv_parallel(json_dir="raw/osv", workers=8):
     df = df.drop_duplicates(subset=["cve_id"])
     return df
 
-df_osv = load_osv_parallel("raw/osv", workers=8)
+df_osv = load_osv_parallel("data/raw/osv", workers=8)
