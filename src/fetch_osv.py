@@ -15,9 +15,9 @@ import requests
 from multiprocessing import Pool
 
 # download OSV data in a "bulk" (not a for loop for an everyday file)
-os.makedirs("raw/osv", exist_ok=True)
+os.makedirs("data/raw/osv", exist_ok=True)
 url = "https://osv-vulnerabilities.storage.googleapis.com/all.zip"
-zip_path = "raw/osv/osv_all.zip"
+zip_path = "data/raw/osv/osv_all.zip"
 
 print("Downloading OSV bulk data")
 r = requests.get(url, stream=True)
