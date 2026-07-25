@@ -16,7 +16,7 @@ from datetime import datetime
 
 # download EPSS
 
-def download_epss(date_str, save_dir="raw/epss_"):
+def download_epss(date_str, save_dir="data/raw/epss_"):
     url = f"https://epss.empiricalsecurity.com/epss_scores-{date_str}.csv.gz"
     save_path = Path(save_dir) / f"epss_scores-{date_str}.csv.gz"
     save_path.parent.mkdir(parents=True, exist_ok=True)
@@ -68,7 +68,7 @@ all_dates = yearly_snapshots + [latest_date]
 
 # load and combine EPSS frames
 frames = []
-base_dir = Path("raw/epss")
+base_dir = Path("data/raw/epss")
 
 for date in all_dates:
     path = base_dir / f"epss_scores-{date}.csv.gz"
