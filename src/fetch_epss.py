@@ -16,7 +16,7 @@ from datetime import datetime
 
 # download EPSS
 
-def download_epss(date_str, save_dir="data/raw/epss_"):
+def download_epss(date_str, save_dir="data/raw/epss"):
     url = f"https://epss.empiricalsecurity.com/epss_scores-{date_str}.csv.gz"
     save_path = Path(save_dir) / f"epss_scores-{date_str}.csv.gz"
     save_path.parent.mkdir(parents=True, exist_ok=True)
